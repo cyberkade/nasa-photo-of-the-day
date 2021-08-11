@@ -1,8 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 const Image = (props) => {
-    const {data} = props;
-    return null;
+    const {url, mediaType} = props;
+    // const [photoOTD, SetPhotoOTD] = useState("");
+
+    if(mediaType === 'image'){
+        return(
+            <div className="imgCont">
+            <img src={url} alt="astronomy picture of the day"></img>
+            </div>
+        )
+    } else {return null}
 }
 
 export default Image;
