@@ -1,7 +1,7 @@
 .app {
   height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   background-color:#1b1d22;
@@ -13,7 +13,7 @@
   min-height: 75vh;
   min-width: 75vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);

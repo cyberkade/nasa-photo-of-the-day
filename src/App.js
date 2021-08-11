@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import { BASE_URL, API_KEY } from "./constants/Constants";
-import Details from "./details/details"
+import Card from "./details/card"
 import "./App.css";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   useEffect( () => {
     axios.get(`${BASE_URL}?api_key=${API_KEY}`)
-      .then( res => setData(res.data))
+      .then( res => setData([res.data]))
       .catch(err => {
         console.error(err);
         setError(err)
@@ -20,6 +20,7 @@ function App() {
   useEffect( () => {
     console.log(data);
   }, [data])
+
   // data.map( item => {
   //   return <div>
       
@@ -30,7 +31,7 @@ function App() {
     <div className="app">
       {error && <h1>{error}</h1>}
       <h1>APOD</h1>
-      <Details data={data}/>
+      <Card data={data}/>
 
     </div>
   );
