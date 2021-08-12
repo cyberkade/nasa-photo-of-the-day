@@ -40,6 +40,16 @@ import styled, {keyframes}  from 'styled-components';
             ;
           }
 
+        h3 {
+            padding: 5px;
+            margin: 10px 50px 0px 0px;
+            align-self: flex-end;
+            color:
+                ${props => props.type === 'materialDark' ? props.theme.materialDate : null}
+                ${props => props.type === 'regular' ? props.theme.regularDate : null}
+            ;
+          }
+
         p {
             padding: 0px;
             color:
@@ -56,6 +66,7 @@ import styled, {keyframes}  from 'styled-components';
         border: none;
         border-radius: 15px;
         padding: 5px 10px;
+        margin: 0px 50px 0px 0px;
         box-shadow:
             ${props => props.type === 'materialDark' ? props.theme.materialBoxShadow : null}
             ${props => props.type === 'regular' ? props.theme.regularBoxShadow : null}
@@ -79,7 +90,7 @@ import styled, {keyframes}  from 'styled-components';
     `
 
 const Info = (props) => {
-    const {explanation, title, date, switchTheme, theme} = props;
+    const {explanation, title, date, switchTheme, theme, credit} = props;
 
     return (
         <StyledDiv type={theme} >
@@ -87,6 +98,7 @@ const Info = (props) => {
             <StyledButton type={theme} onClick={() => switchTheme()}>Switch Theme!</StyledButton>
             <h2>{date}</h2>
             <p>{explanation}</p>
+            <h3>Photographer - {credit}</h3>
         </StyledDiv>
     )
 } 

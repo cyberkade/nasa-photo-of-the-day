@@ -22,7 +22,9 @@ import styled from 'styled-components';
     ;
     h1 {
       font-size: 32px;
-      margin-bottom: 10px;
+      margin: 15px 0px 10px 0px;
+      border-radius: 15px;
+      padding: 5px 10px;
     }
   `
 
