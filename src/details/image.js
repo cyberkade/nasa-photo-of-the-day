@@ -4,8 +4,10 @@ import styled from 'styled-components';
 const StyledDiv = styled.div`
     width: 50vw; height: 100%;
     text-align: center;
-    padding: 15px;
+    border-radius: 25px;
+    padding: 15px 15px;
 `
+
 const StyledImg = styled.img`
     width: 634px; height: 100%;
     border-radius: 25px;

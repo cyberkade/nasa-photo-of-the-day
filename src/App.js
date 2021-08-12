@@ -5,20 +5,25 @@ import Card from "./details/card"
 import styled from 'styled-components';
 
   const StyledSection = styled.section`
-    max-width:100vw;
+    overflow: hidden;
+    max-width: 100vw;
     height: 100vh;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
-    background-color: 
-      ${props => props.type === 'materialDark' ? props.theme.materialDark : null}
-      ${props => props.type === 'regular' ? props.theme.regular : null}
-    ;
     color:
       ${props => props.type === 'materialDark' ? props.theme.materialGray : null}
       ${props => props.type === 'regular' ? props.theme.regularBlack : null}
     ;
+    background-color: 
+      ${props => props.type === 'materialDark' ? props.theme.materialDark : null}
+      ${props => props.type === 'regular' ? props.theme.regular : null}
+    ;
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
   `
 
 function App() {
@@ -52,9 +57,9 @@ function App() {
   // })
 
   return (
-    data && <StyledSection type={theme}>
+    data && <StyledSection className='head' type={theme}>
               {error && <h1>{error}</h1>}
-              <h1>APOD</h1>
+              <h1>Astronomy Picture Of The Day</h1>
               <Card APOD={APOD} switchTheme={switchTheme} theme={theme} data={data}/>
             </StyledSection>
           );

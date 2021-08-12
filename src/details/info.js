@@ -25,6 +25,10 @@ import styled, {keyframes}  from 'styled-components';
             display: inline-block;
             padding: 5px;
             margin: 0px;
+            color:
+                ${props => props.type === 'materialDark' ? props.theme.materialTitle : null}
+                ${props => props.type === 'regular' ? props.theme.regularTitle : null}
+            ;
         }
 
         h2 {
@@ -38,6 +42,10 @@ import styled, {keyframes}  from 'styled-components';
 
         p {
             padding: 0px;
+            color:
+                ${props => props.type === 'materialDark' ? props.theme.materialGray : null}
+                ${props => props.type === 'regular' ? props.theme.regularBlack : null}
+            ;
         }
 
 
@@ -75,7 +83,7 @@ const Info = (props) => {
 
     return (
         <StyledDiv type={theme} >
-            <h1>{title}</h1>
+            <h1 type={theme} >{title}</h1>
             <StyledButton type={theme} onClick={() => switchTheme()}>Switch Theme!</StyledButton>
             <h2>{date}</h2>
             <p>{explanation}</p>
