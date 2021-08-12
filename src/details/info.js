@@ -15,22 +15,69 @@ import styled, {keyframes}  from 'styled-components';
         transform: scale(2);
         opacity: 0;
         animation: ${kf} 0.3s ease-in-out forwards;
-        padding: 15px;
+        padding: 25px;
         display: flex;
         flex-flow: column nowrap;
+        justify-content: center;
+
+        h1 {
+            font-size:32px;
+            display: inline-block;
+            padding: 5px;
+            margin: 0px;
+        }
+
+        h2 {
+            padding: 5px;
+            margin: 0px 0px 0px 5px;
+            color:
+                ${props => props.type === 'materialDark' ? props.theme.materialDate : null}
+                ${props => props.type === 'regular' ? props.theme.regularDate : null}
+            ;
+          }
+
+        p {
+            padding: 0px;
+        }
+
+
     `
     const StyledButton = styled.button`
         align-self: flex-end;
+        display: inline-block;
+        border: none;
+        border-radius: 15px;
+        padding: 5px 10px;
+        box-shadow:
+            ${props => props.type === 'materialDark' ? props.theme.materialBoxShadow : null}
+            ${props => props.type === 'regular' ? props.theme.regularBoxShadow : null}
+        ;
+        display: flex;
+        background-color: 
+            ${props => props.type === 'materialDark' ? props.theme.materialDark : null}
+            ${props => props.type === 'regular' ? props.theme.regular : null}
+        ;
+        color:
+            ${props => props.type === 'materialDark' ? props.theme.materialGray : null}
+            ${props => props.type === 'regular' ? props.theme.regularBlack : null}
+        ;
+        &:hover {
+            box-shadow:
+                ${props => props.type === 'materialDark' ? props.theme.materialBoxShadowHover : null}
+                ${props => props.type === 'regular' ? props.theme.regularBoxShadowHover : null}
+            ;
+        }
+
     `
 
 const Info = (props) => {
-    const {explanation, title, date, switchTheme} = props;
+    const {explanation, title, date, switchTheme, theme} = props;
 
     return (
-        <StyledDiv>
-            <h1 className="title">{title}</h1>
-            <StyledButton onClick={() => switchTheme()}>Switch Theme!</StyledButton>
-            <h2 >{date}</h2>
+        <StyledDiv type={theme} >
+            <h1>{title}</h1>
+            <StyledButton type={theme} onClick={() => switchTheme()}>Switch Theme!</StyledButton>
+            <h2>{date}</h2>
             <p>{explanation}</p>
         </StyledDiv>
     )
